@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Kan-Jonathan</title>
+      <link rel="icon" href="./images/hacker.jpg">
+      <link rel="stylesheet" href="./css/kan.css">
+</head>
+<body>
+
+      <!-- The navigationbar -->
+      <header>
+            <a href="#sec" class="logo">Jonathan</a>
+            <ul>
+                  <li><a href=index.html>Home</a></li>
+                  <li><a href=wiebenik.html>Wie ben ik</a></li>
+                  <li><a href=watkanik.html class="active">Wat kan ik</a></li>
+                  <li><a href=watwilik.html>Wat wil ik</a></li>
+            </ul>
+      </header>
+
+      <!-- Background image and button -->
+      <section>
+            <img
+                  src="./images/jumpcliff.jpg"
+                  alt=""
+                  id="frontimg"
+                  loading="lazy"
+            />
+            <h2 class="imagetext" id="text">Wat Kan Ik</h2>
+            <br>
+            <a href="#sec" id="btn">Meer</a>
+      </section>
+
+      <!-- Main paragraph / text part -->
+      <h2 class="h2" id="sec">School</h2>
+
+      <div class="sec">
+
+            <p class="paragraph">
+                  Ik doe op school N&T met Wiskunde D, N&T en informatica. Qua vakken vind ik Nederlands het lastigst, omdat ik teksten lezen nutteloos vind en omdat ik er niet goed in ben.
+                  Het makkelijkst vind ik Engels, aangezien ik veel wat we in de les behandelen al weet. Ook ben ik goed in Latijn en wiskunde.                                    
+            </p>     
+      </div>
+      <!-- 56 -->
+      <h2 class="h2">Sport</h2>
+
+      <div class="sec">
+            <p class="paragraph">
+                  Van kinds af aan speel ik hockey, wat ik leuk vind, omdat je samen met je team een gezamelijk doel hebt. 
+                  Ook tennis ik sinds ik 9 ben; alleen begin ik dat steeds minder te doen.
+                  Ook al is schaken niet echt een sport, maar een denksport, zet ik 't toch er toch bij.
+                  Toen ik klein was schaakte ik erg veel en heb ik lessen genomen, maar ik ben er al een hele lange tijd mee gestopt.
+                  Ik denk sinds ik 10 was.
+            </p>
+      </div>
+
+      <!-- 85 -->
+      <h2 class="h2">Coderen</h2>
+
+      <div class="sec">
+
+            <p class="paragraph">
+                  Toen ik erg jong was, ongeveer 9, ging ik met m'n moeder coderen. Dat was in python.
+                  Ik was daar nooit echt ver mee gekomen, ik stopte al binnen 3 maanden.
+                  Maar iets voor de zomervakantie van dit jaar ben ik er weer mee begonnen.
+                  Ik heb toen een paar games en andere applicaties in python gemaakt.
+                  Nu heb ik wat javascript geleerd, om wat animaties bij m'n website te maken.
+            </p>
+            <!-- 71 -->
+
+            <!-- Total 212 -->
+      </div>
+
+      <!-- Creates the scrolling effect -->
+      <script>
+            let imagetext = document.getElementById('text');
+            let btn = document.getElementById('btn');
+            let header = document.querySelector('header');
+            let img = document.getElementById('frontimg')
+
+
+            window.addEventListener('scroll', function(){
+                  let value = window.scrollY;
+                  imagetext.style.marginTop = value * 1.5 + 'px';
+                  btn.style.marginTop = value * 1.5 + 'px';
+                  header.style.top = value * 0.9 + 'px';
+            })
+      </script>
+
+      <!-- Intersection observer triggers animation -->
+      <script>
+            const observer = new IntersectionObserver((entries) => {
+                  entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                              entry.target.classList.add('appear');
+                        } else {
+                              entry.target.classList.remove('appear');
+                        }
+                  });
+            });
+
+            const nonVisableH2 = document.querySelectorAll('.h2');
+            nonVisableH2.forEach((el) => observer.observe(el));
+            const nonVisableP = document.querySelectorAll('.paragraph');
+            nonVisableP.forEach((el) => observer.observe(el));
+      </script>
+</body>
+</html>

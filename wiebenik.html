@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Wie-Jonathan</title>
+      <link rel="icon" href="./images/hacker.jpg">
+      <link rel="stylesheet" href="./css/wie.css">
+</head>
+<body>
+
+      <!-- The navigationbar -->
+      <header>
+            <a href="#sec" class="logo">Jonathan</a>
+            <ul>
+                  <li><a href=index.html>Home</a></li>
+                  <li><a href=wiebenik.html class="active">Wie ben ik</a></li>
+                  <li><a href=watkanik.html>Wat kan ik</a></li>
+                  <li><a href=watwilik.html>Wat wil ik</a></li>
+            </ul>
+      </header>
+
+      <!-- Background image and button -->
+      <section>
+            <img
+                  src="./images/hacker.jpg"
+                  alt=""
+                  id="frontimg"
+                  style="opacity: 0.8; height: 100%;"
+                  loading="lazy"
+            />
+            <h2 class="imagetext" id="text">Wie Ben Ik</h2>
+            <br>
+            <a href="#sec" id="btn">Meer</a>
+      </section>
+      
+
+      <!-- First animated paragraph // text part -->
+      <div class="grid" id="sec">
+            <!-- The first text & image -->
+            <p class="slide-in from-left">
+			Ik ben Jonathan en ik ben 15 jaar oud. Ben geboren in Amsterdam, maar woon nu in <a href="https://www.google.nl/maps/place/Abcoude/" target="_blank">Abcoude</a>.
+		</p>
+			
+            <!-- The second (al 18) -->
+            <p class="slide-in from-right">
+			Ik speel hockey drie keer in de week en tennis één keer per week. 's Winters ski ik.
+		</p>
+
+            <p class="slide-in from-left">
+                  Toen ik op de basisschool zat, zat ik op de <a href="https://www.rkbspaulusschool.nl/" target="_blank">Paulusschool</a> een kleine school met ongv. 200 leerlingen.
+            </p>
+
+            <p class="slide-in from-right">
+                  Ik hou erg van eten. Het lekkerst vind ik sushi en lasagne.
+            </p>
+      </div>
+
+      <!-- Second paragraph -->
+      <div class="grid">			
+            <img
+                  class="slide-in from-left"
+                  src="./images/amsterdam.jpg"
+                  style="width: 75%;"
+                  loading="lazy"
+            />
+            <!-- Third (65)-->
+            <p class="slide-in from-right">
+			Ik zit op de middelbare school: Het Amsterdams Lyceum. Daar doe ik N&T met informatica, NLT en Wiskunde D
+		</p>
+
+            <!-- Fourth (84) -->
+            <img
+                  class="slide-in from-left"
+                  src="./images/family.png"
+                  style="width: 70%;"
+                  loading="lazy"
+            />
+            <p class="slide-in from-right">
+                  Ik woon samen met mijn vader, moeder en tweelingzus. Ik heb ook drie huisdieren: 2 paarden en een hond.
+            </p>
+      </div>
+      
+      <!-- Third paragraph -->
+      <div class="grid" id="sec">
+
+		<!-- Fifth (102) -->
+		<p class="slide-in from-left">
+			Verder hou ik ervan om in mijn vrije tijd Netflix te kijken een van mijn favorite series is Better Call Saul die bij het Breaking bad universum hoort. 
+		</p>
+
+		<p class= "slide-in from-right">
+			Die serie gaat over een advocaat genaamd Jimmy Mcgill die een alter ego krijgt: Saul Goodman en allerlei illegale dingen gaat doen.
+		</p>
+
+            <!-- Sixth (144) -->
+            <p class="slide-in from-left">
+                  Momenteel kijk ik Suits, dat gaat over een advocaat genaamd Mike Ross. Die probeert een baan te krijgen bij een groot firma.
+            </p>
+
+            <img
+                  class="slide-in from-right"    
+                  src="./images/suits.jpg.webp"
+                  style="width: 79%;"
+                  loading="lazy"
+            />
+      </div>
+      
+      <!-- Fourth paragraph -->
+	<div class="grid">	
+		<!-- Seventh (166) -->
+            <img
+                  class="slide-in from-left"
+                  src="./images/controller.png"
+                  style="width: 75%;"
+                  loading="lazy"
+            />
+
+            <p class="slide-in from-right">
+                  Ook hou erg ik van het spelen van videogames, zoals Call of Duty, Minecraft en Valorant.
+            </p>
+
+            <!-- Eighth (182)-->
+            <p class="slide-in from-left">
+                  Mijn favoriete vakantie is, denk ik, de voorjaarsvakantie, omdat ik erg van sneeuw en skiën en sleeën hou.
+            </p>
+
+            <img
+                  class="slide-in from-right"
+                  src="./images/skies.png"
+                  style="height: 65%;"
+                  loading="lazy"
+            />
+      </div>
+
+      <!-- Total words 210 -->
+         
+    <!-- Creates the scrolling effect -->
+    <script>
+            let imagetext = document.getElementById('text');
+            let btn = document.getElementById('btn');
+            let header = document.querySelector('header');
+      
+
+            window.addEventListener('scroll', function(){
+                  let value = window.scrollY;
+                  imagetext.style.marginTop = value * 1.5 + 'px';
+                  btn.style.marginTop = value * 1.5 + 'px';
+                  header.style.top = value * 0.9 + 'px';
+            })
+      </script>
+
+      <!-- Observer fade in -->
+      <script>
+            const faders = document.querySelectorAll('.fade-in');
+            const sliders = document.querySelectorAll('.slide-in');
+
+            const appearOptions = {
+            threshold: 0,
+            rootMargin: "0px 0px -190px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                  entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                              entry.target.classList.add('appear');
+                        } else {
+                              entry.target.classList.remove('appear');
+                        }
+                  })
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                  appearOnScroll.observe(fader);
+            });
+
+            sliders.forEach(slider => {
+                  appearOnScroll.observe(slider);
+            });
+      </script>
+</body>
+</html>

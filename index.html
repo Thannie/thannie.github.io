@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan</title>
+    <link rel="icon" href="./images/hacker.jpg">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+    <!-- The navigationbar -->
+    <header>
+        <a href="#sec" class="logo" id="span">Jonathan</a>
+        <ul>
+            <li><a href=index.html class="active">Home</a></li>
+            <li><a href=wiebenik.html>Wie ben ik</a></li>
+            <li><a href=watkanik.html>Wat kan ik</a></li>
+            <li><a href=watwilik.html>Wat wil ik</a></li>
+        </ul>
+    </header>
+
+    <!-- Background image and button -->
+    <section>
+        <img
+            src="./images/indexfoto.jpg"
+            alt=""
+            id="frontimg"
+            loading="lazy"
+        />
+        <h2 class="imagetext">Jonathan</h2>
+        <br>
+        <a href="#sec" class="btn">Meer</a>
+    </section>
+
+    <div class="grid" id="sec">
+        <p class="slide-in from-left">
+            Wat leuk dat je op m'n website komt kijken! Ik heb hem voor informatica gemaakt.
+        </p>
+        <img
+            class="slide-in from-right"
+            src="./images/vscode.png"
+            style="width: 90%;"
+            loading="lazy"
+        />
+    </div>
+
+    <!-- Lets objects stay in place while scrolling -->
+    <script>
+        let imagetext = document.querySelectorAll('h2');
+        let btn = document.getElementsByClassName('btn');
+        let header = document.querySelector('header');
+        let button = btn[0];
+        let text = imagetext[0];      
+
+        window.addEventListener('scroll', function() {
+            let value = scrollY;
+            header.style.marginTop = value * 0.9 + 'px';
+            button.style.marginTop = value * 1.5 + 'px';
+            text.style.marginTop = value * 1.5 + 'px';
+        })
+    </script>
+
+    <!-- Observer fade in -->
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+        const sliders = document.querySelectorAll('.slide-in');
+
+        const appearOptions = {
+            threshold: 0,
+            rootMargin: "0px 0px -190px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                }   
+                else {
+                    entry.target.classList.remove('appear');
+                }
+            })
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        sliders.forEach(slider => {
+            appearOnScroll.observe(slider);
+        });
+    </script>
+
+    <!-- Lets some things fade in -->
+    <script>
+        const beginText = document.querySelector('.imagetext');
+        const beginButton = document.querySelector('.btn')
+
+        beginText.classList.add('appear');
+        beginButton.classList.add('appear');
+        const observer = new IntersectionObserver((entries) => {
+                  entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                              entry.target.classList.add('appear');
+                        } else {
+                              entry.target.classList.remove('appear');
+                        }
+                  });
+            });
+
+            const nonVisableItext = document.querySelectorAll('.imagetext');
+            nonVisableItext.forEach((el) => observer.observe(el));
+            const nonVisableBtn = document.querySelectorAll('.btn');
+            nonVisableBtn.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>

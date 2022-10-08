@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Wil-Jonathan</title>
+      <link rel="icon" href="./images/hacker.jpg">
+      <link rel="stylesheet" href="./css/wil.css">
+</head>
+<body>
+      <!-- The navigationbar -->
+      <header>
+            <a href="#sec" class="logo">Jonathan</a>
+            <ul>
+                  <li><a href=index.html>Home</a></li>
+                  <li><a href=wiebenik.html>Wie ben ik</a></li>
+                  <li><a href=watkanik.html>Wat kan ik</a></li>
+                  <li><a href=watwilik.html class="active">Wat wil ik</a></li>
+            </ul>
+      </header>
+
+      <!-- Background image and button -->
+      <section>
+            <img
+                  src="./images/villa.jpg"
+                  alt=""
+                  id="frontimg"
+                  loading="lazy"
+            />
+            <h2 class="imagetext" id="text">Wat Wil Ik</h2>
+            <br>
+            <a href="#sec" id="btn">Meer</a>
+      </section>
+
+      <!-- Main paragraph / text part -->
+      <h2 class="h2" id="sec">Universiteit</h2>
+
+      <div class="sec">
+            <p class="paragraph">
+                  Later zou ik graag willen studeren. Ik weet nog niet wat, maar heb wel een paar ideeën. Ik dacht aan artificial intelligence of data science.
+                  Qua universiteit lijkt mij de <a href="https://www.uva.nl/" target="_blank">UVA</a> of misschien een buitenlandse universiteit leuk.
+                  Maar ik ben nog niet zeker of ik studeren, wil want veel dingen zijn ook online te leren zonder dat je naar de universiteit hoeft.
+            </p>
+      </div>
+      <!-- 62 -->
+      <h2 class="h2">Beroep</h2>
+
+      <div class="sec">
+            <p class="paragraph">
+                  Ik weet niet wat ik later wil doen qua baan. Ik denk wel dat ik iets technisch zou willen doen.
+                  Misschien een AI maken of voor een techbedrijf werken. Een game maken lijkt me ook erg leuk, omdat je dan problemen aan het oplossen bent en ook iets terug ziet in de form van een game.
+                  Of ik wil misschien een eigen bedrijf oprichten en daar iets mee te ondernemen.
+            </p>
+      </div>
+      	<!-- 70 -->
+      <h2 class="h2">Op dit moment</h2>
+
+      <div class="sec">
+
+            <p class="paragraph">
+                  Ik ben nu bezig met allerlei kleine projectjes, die doe ik vooral in Python. Ik heb bijvoorbeeld Snake en Crossy Road daarmee gemaakt.
+                  Daarnaast ben ik ook geïnteresseerd in artificial intelligence; hoe het kan dat met wat data er accurate voorspellingen gemaakt kunnen worden.
+                  Ook heb ik wat video's geëdit, maar dat vond ik wat minder leuk, want ik denk dat ik meer voor de logica ben dan voor het design.
+            </p> 
+      </div>
+      <!-- 71 -->
+
+      <!-- Total 203 -->
+
+      <!-- Creates the scrolling effect -->
+      <script>
+            let imagetext = document.getElementById('text');
+            let btn = document.getElementById('btn');
+            let header = document.querySelector('header');
+            let img = document.getElementById('frontimg');
+      
+
+            window.addEventListener('scroll', function(){
+                  let value = window.scrollY;
+                  imagetext.style.marginTop = value * 1.5 + 'px';
+                  btn.style.marginTop = value * 1.5 + 'px';
+                  header.style.top = value * 0.9 + 'px';
+            });
+      </script>
+      
+      <!-- Intersection observer triggers animation -->
+      <script>
+            const observer = new IntersectionObserver((entries) => {
+                  entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                              entry.target.classList.add('appear');
+                        } else {
+                              entry.target.classList.remove('appear');
+                        }
+                  });
+            });
+
+            const nonVisableH2 = document.querySelectorAll('.h2');
+            nonVisableH2.forEach((el) => observer.observe(el));
+            const nonVisableP = document.querySelectorAll('.paragraph');
+            nonVisableP.forEach((el) => observer.observe(el));
+      </script>
+</body>
+</html>
