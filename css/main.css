@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display-swap');
+*
+{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+}
+
+body
+{
+      background-blend-mode: screen;
+      background: linear-gradient(#1b3b1b, #013201);
+      overflow-x: hidden;
+}
+
+/* Styles the navigation bar */
+header
+{
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 30px, 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10000;
+      background-color: #013201;
+}
+
+header .logo
+{
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 2em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 20px;
+}
+
+header ul
+{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 10px;
+}
+
+header ul li
+{
+      list-style: none;
+      margin-left: 20px;
+}
+
+header ul li a
+{
+      text-decoration: none;
+      padding: 6px 15px;
+      color:#fff;
+      border-radius: 20px;
+}
+
+header ul li a:hover ,
+header ul li a.active
+{ 
+      background: #fff;
+      color: #205510;
+}
+
+/* Styles the button*/
+.btn
+{
+      position: absolute;
+      background: #fff;
+      color: #205510;
+      text-align: center;
+      font-size: 1.5em;
+      width: 100px;
+      height: 48px;
+      text-decoration: none;
+      padding: 6px 15px;
+      border-radius: 40px;
+      transform: translateY(120px);
+      display: inline-block;
+      z-index: 9;
+      transition: 750ms opacity ease-in;
+      opacity: 0;
+}
+
+/* Styles the image*/
+#frontimg
+{
+      max-width: 100%;
+      height: 100%;
+      position: relative;
+}
+
+section
+{
+      position: relative;
+      width: 100%;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 49px;
+      height: 100vh;
+      overflow: hidden;
+}     
+
+/* Provides an overlay between the image and text */
+section::before
+{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to top,#1b3b1b,transparent);
+      z-index: 1000;
+}
+
+/* Styles the image */
+section img
+{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+}
+
+.imagetext
+{
+      position: absolute;
+      color: #fff;
+      font-size: 7vw;
+      white-space: nowarp;
+      z-index: 9;
+      opacity: 0;
+      transition: opacity 450ms ease-in;
+}
+
+/* Styles the text part */
+div
+{
+      min-height: 100vh;
+      background-image: linear-gradient(#1b3b1b, #0a5313);
+      color: #fff;
+      padding: 10px;
+      padding-left: 20px;
+      font-size: 1.5em;
+
+}
+
+.sec
+{
+      position: relative;
+      padding: 100px;
+}
+
+/* Header on top */
+.top
+{
+      font-size: 4vw;
+      text-align: center;
+      min-height: 100vh;
+      color: #fff;
+      padding: 10px;
+      position: absolute;
+}
+
+/* The grid */
+.grid
+{
+      padding: 2em 0;
+      display: grid;
+      grid-gap: 2em;
+      align-items: center;
+      grid-template-columns: minmax(1em, 1fr) repeat(2, minmax(200px, 400px)) minmax(
+            1em,
+            1fr
+            );
+}
+
+/* Fade in */
+.fade-in
+{
+      opacity: 0;
+      transition: opacity 250ms ease-in;  
+}
+
+.fade-in.appear
+{
+      transition: opacity 250ms ease-in; 
+}
+
+.from-left
+{
+      grid-column:  2 / 3;
+      transform: translateX(-50%);
+}
+
+.from-mid
+{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(-50%);  
+}
+
+.from-right
+{
+      grid-column: 3 / 4;
+      transform: translateX(50%);
+}
+
+.from-left,
+.from-right,
+.from-mid
+{
+      transition: opacity 250ms ease-in, transform 400ms ease-in;
+      opacity: 0;
+}
+
+.from-left.appear,
+.from-right.appear,
+.from-mid.appear
+{
+      transform: translateX(0);
+      opacity: 1;
+}
+
+/* Text fade */
+.appear
+{
+      opacity: 1;
+}
